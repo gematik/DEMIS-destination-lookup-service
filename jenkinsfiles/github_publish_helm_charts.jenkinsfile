@@ -1,0 +1,6 @@
+@Library(['gematik-jenkins-shared-library', 'demis-jenkins-shared-library']) _
+
+pipelineGitHubHelmChartPublish {
+    SERVICE_NAME = 'destination-lookup-service'
+    HELM_PACKAGES = ['destination-lookup-reader','destination-lookup-reader-istio','destination-lookup-purger','destination-lookup-purger-istio','destination-lookup-writer','destination-lookup-writer-istio']
+}

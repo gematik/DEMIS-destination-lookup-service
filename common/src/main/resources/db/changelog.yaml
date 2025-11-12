@@ -1,0 +1,5 @@
+databaseChangeLog:
+  - include:
+      file: classpath:db/changelog/00-init-changelog.yaml
+  - include:
+      file: classpath:db/changelog/01-default-table-permissions.yaml

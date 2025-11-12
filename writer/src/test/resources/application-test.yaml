@@ -1,0 +1,18 @@
+logging:
+  level:
+    de.gematik.demis.destination.lookup: DEBUG
+    org:
+      testcontainers: DEBUG
+    org.hibernate:
+      SQL: DEBUG
+      orm.jdbc.bind: trace
+
+spring:
+  liquibase:
+    enabled: true
+
+
+
+  datasource:
+    password: destination_lookup_writer
+    username: destination_lookup_writer

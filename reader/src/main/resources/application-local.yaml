@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/destination_lookup
+    username: destination_lookup_reader
+    password: destination_lookup_reader
+
+server:
+  port: 9091
+
+logging:
+  level:
+    de.gematik.demis.destination.lookup.reader: DEBUG
+    org:
+      hibernate:
+        SQL: DEBUG
+#        orm.jdbc.bind: trace

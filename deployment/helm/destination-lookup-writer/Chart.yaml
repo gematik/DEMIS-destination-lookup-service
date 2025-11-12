@@ -1,0 +1,6 @@
+apiVersion: v2
+name: destination-lookup-writer
+description: DEMIS Service for storing Metadata for follow-up Notifications
+type: application
+version: 1.0.0
+appVersion: "1.0.0"

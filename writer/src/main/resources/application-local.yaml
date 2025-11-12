@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/destination_lookup
+    username: destination_lookup_writer
+    password: destination_lookup_writer
+
+  jpa:
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+  sql:
+    init:
+      mode: never
+
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog.yaml
+    user: destination_lookup_writer_ddl
+    password: destination_lookup_writer_ddl
+
+logging:
+  level:
+    de.gematik.demis.destination.lookup.writer: DEBUG
+    org:
+      hibernate:
+        SQL: DEBUG
+#        orm.jdbc.bind: trace

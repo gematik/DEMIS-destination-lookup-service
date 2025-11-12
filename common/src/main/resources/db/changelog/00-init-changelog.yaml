@@ -1,0 +1,31 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_table_destination_lookup
+      author: demis@gematik.de
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_destination_lookup
+                  name: notification_id
+                  type: uuid
+              - column:
+                  name: responsible_department
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: notification_category
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: last_updated
+                  type: timestamp
+                  constraints:
+                    nullable: false
+            tableName: destination_lookup
+
