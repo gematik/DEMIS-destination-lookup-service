@@ -1,1 +1,121 @@
-# DEMIS-destination-lookup-service
+<img align="right" width="250" height="47" src="media/Gematik_Logo_Flag.png"/> <br/> 
+
+# Destination-Lookup-Service
+
+[![Quality Gate Status](https://sonar.prod.ccs.gematik.solutions/api/project_badges/measure?project=de.gematik.demis%3Adestination-lookup-service&metric=alert_status&token=f6b0d2644cdc236a78e65a44ef61eb7f161ba1ab)](https://sonar.prod.ccs.gematik.solutions/dashboard?id=de.gematik.demis%3Adestination-lookup-service)[![Vulnerabilities](https://sonar.prod.ccs.gematik.solutions/api/project_badges/measure?project=de.gematik.demis%3Adestination-lookup-service&metric=vulnerabilities&token=f6b0d2644cdc236a78e65a44ef61eb7f161ba1ab)](https://sonar.prod.ccs.gematik.solutions/dashboard?id=de.gematik.demis%3Adestination-lookup-service)[![Bugs](https://sonar.prod.ccs.gematik.solutions/api/project_badges/measure?project=de.gematik.demis%3Adestination-lookup-service&metric=bugs&token=f6b0d2644cdc236a78e65a44ef61eb7f161ba1ab)](https://sonar.prod.ccs.gematik.solutions/dashboard?id=de.gematik.demis%3Adestination-lookup-service)[![Code Smells](https://sonar.prod.ccs.gematik.solutions/api/project_badges/measure?project=de.gematik.demis%3Adestination-lookup-service&metric=code_smells&token=f6b0d2644cdc236a78e65a44ef61eb7f161ba1ab)](https://sonar.prod.ccs.gematik.solutions/dashboard?id=de.gematik.demis%3Adestination-lookup-service)[![Lines of Code](https://sonar.prod.ccs.gematik.solutions/api/project_badges/measure?project=de.gematik.demis%3Adestination-lookup-service&metric=ncloc&token=f6b0d2644cdc236a78e65a44ef61eb7f161ba1ab)](https://sonar.prod.ccs.gematik.solutions/dashboard?id=de.gematik.demis%3Adestination-lookup-service)[![Coverage](https://sonar.prod.ccs.gematik.solutions/api/project_badges/measure?project=de.gematik.demis%3Adestination-lookup-service&metric=coverage&token=f6b0d2644cdc236a78e65a44ef61eb7f161ba1ab)](https://sonar.prod.ccs.gematik.solutions/dashboard?id=de.gematik.demis%3Adestination-lookup-service)
+
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#release-notes">Release Notes</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#security-policy">Security Policy</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
+
+## About The Project
+
+Here should go information about the project.
+
+### Release Notes
+
+See [ReleaseNotes.md](./ReleaseNotes.md) for all information regarding the (newest) releases.
+
+## Getting Started
+
+### Prerequisites
+
+The Project requires Java 21 and Maven 3.8+.
+
+### Installation
+
+The Project can be built with the following command:
+
+```sh
+mvn clean install
+```
+
+The Docker Image associated to the service can be built with the extra profile `docker`:
+
+```sh
+mvn clean install -Pdocker
+```
+
+## Usage
+
+The application can be executed locally from a JAR file or a Docker Image, with the assumption that a PostgreSQL database is reachable and the connection parameters are provided as environment variables.
+In this repository a `docker-compose.yaml` file is provided to start a PostgreSQL database with the required schema and user, configured with the local profile:
+
+```sh
+docker compose --project-name destination-lookup-db up -d
+# As JAR Application
+java -Dspring.profiles.active=local -jar reader/target/destination-lookup-service.jar
+java -Dspring.profiles.active=local -jar writer/target/destination-lookup-service.jar
+# As Docker Image
+docker run --rm -it -p 8080:8080 -e DB_URL=... -e DB_USER=... -e DB_PASS=... europe-west3-docker.pkg.dev/gematik-all-infra-prod/demis-dev/destination-lookup-reader:latest
+docker run --rm -it -p 8081:8080 -e DB_URL=... -e DB_USER=... -e DB_PASS=... europe-west3-docker.pkg.dev/gematik-all-infra-prod/demis-dev/destination-lookup-writer:latest
+```
+
+It can also be deployed on Kubernetes by using the Helm Chart defined in the folder `deployment/helm/destination-lookup-service`:
+
+```ssh
+helm upgrade --install destination-lookup-service ./deployment/helm/destination-lookup-reader
+helm upgrade --install destination-lookup-service ./deployment/helm/destination-lookup-writer  
+```
+
+### Continuous Integration and Delivery
+
+The project contains Jenkins Pipelines to perform automatic build and scanning (`ci.jenkinsfile`) and release (based on retagging of the given Git Tag, `release.jenkinsfile`).
+Please adjust the variable values defined at the beginning of the pipelines!
+
+For both the pipelines, you need to create a first initial Release Version in JIRA, so it can be retrieved from Jenkins with the Jenkins Shared Library functions.
+
+**BEWARE**: The Release Pipeline requires a manual configuration of the parameters over the Jenkins UI, defining a JIRA Release Version plugin and naming it `JIRA_RELEASE_VERSION`.
+The Information such as Project Key and Regular Expression depends on the project and must be correctly configured.
+
+### Endpoints
+
+Define here the available endpoints exposed by the service
+
+## Security Policy
+If you want to see the security policy, please check our [SECURITY.md](.github/SECURITY.md).
+
+## Contributing
+If you want to contribute, please check our [CONTRIBUTING.md](.github/CONTRIBUTING.md).
+
+## License
+
+Copyright 2023-2025 gematik GmbH
+
+EUROPEAN UNION PUBLIC LICENCE v. 1.2
+
+EUPL © the European Union 2007, 2016
+
+See the [LICENSE](./LICENSE.md) for the specific language governing permissions and limitations under the License
+
+## Additional Notes and Disclaimer from gematik GmbH
+
+1. Copyright notice: Each published work result is accompanied by an explicit statement of the license conditions for use. These are regularly typical conditions in connection with open source or free software. Programs described/provided/linked here are free software, unless otherwise stated.
+2. Permission notice: Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+   1. The copyright notice (Item 1) and the permission notice (Item 2) shall be included in all copies or substantial portions of the Software.
+   2. The software is provided "as is" without warranty of any kind, either express or implied, including, but not limited to, the warranties of fitness for a particular purpose, merchantability, and/or non-infringement. The authors or copyright holders shall not be liable in any manner whatsoever for any damages or other claims arising from, out of or in connection with the software or the use or other dealings with the software, whether in an action of contract, tort, or otherwise.
+   3. We take open source license compliance very seriously. We are always striving to achieve compliance at all times and to improve our processes. If you find any issues or have any suggestions or comments, or if you see any other ways in which we can improve, please reach out to: ospo@gematik.de
+3. Please note: Parts of this code may have been generated using AI-supported technology. Please take this into account, especially when troubleshooting, for security analyses and possible adjustments.
+
+## Contact
+E-Mail to [DEMIS Entwicklung](mailto:demis-entwicklung@gematik.de?subject=[GitHub]%20Destination-Lookup-Service)

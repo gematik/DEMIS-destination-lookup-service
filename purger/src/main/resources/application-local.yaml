@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/destination_lookup
+    username: destination_lookup_purger
+    password: destination_lookup_purger
+
+logging:
+  level:
+    de.gematik.demis.destination.lookup.reader: DEBUG
+    org:
+      hibernate:
+        SQL: DEBUG
+#        orm.jdbc.bind: trace

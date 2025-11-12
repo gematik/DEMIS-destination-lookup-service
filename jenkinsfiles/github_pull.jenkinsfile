@@ -1,0 +1,7 @@
+@Library('gematik-jenkins-shared-library') _
+pipelineGitHubPull {
+    GITHUB_PROJECT_NAME = 'DEMIS-destination-lookup-service'
+    GEMATIK_PROJECT_NAME = 'demis/services/destination-lookup-service.git'
+    GITLAB_TARGET_BRANCH = 'main'
+    GITHUB_SOURCE_BRANCH = 'main'
+}

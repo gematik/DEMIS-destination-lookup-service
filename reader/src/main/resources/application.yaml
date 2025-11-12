@@ -1,0 +1,52 @@
+spring:
+  config:
+    import: classpath:/base-config-application.yaml
+  threads:
+    virtual:
+      enabled: true
+  jpa:
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+
+  liquibase:
+    enabled: false
+
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: ${DB_URL}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+
+    hikari:
+      minimum-idle: 2
+      maximum-pool-size: 10
+
+base:
+  # Enable the Base Error Handler
+  errorhandler:
+    enabled: true
+  # Enable the Base Feign Extension
+  feign:
+    extension:
+      enabled: false
+  # Enable Request Logging
+  logging:
+    request:
+      enabled: true
+  # Enable Meter Aspect
+  meter:
+    aspect:
+      enabled: true
+
+## Actuator Configuration
+management:
+  observations:
+    key-values:
+      application: '@project.name@'
+
+info:
+  app:
+    name: '@project.name@'
+    version: '@project.version@'

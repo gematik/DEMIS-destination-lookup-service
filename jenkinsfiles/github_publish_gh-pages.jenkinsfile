@@ -1,0 +1,6 @@
+@Library('gematik-jenkins-shared-library') _
+pipelineGitHubPublishGhPages {
+    GITHUB_PROJECT_NAME = 'DEMIS-destination-lookup-service'
+    GEMATIK_PROJECT_NAME = 'demis/services/destination-lookup-service.git'
+    REMOTE_BRANCH = 'gh-pages'
+}

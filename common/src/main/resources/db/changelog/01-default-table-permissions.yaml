@@ -1,0 +1,27 @@
+databaseChangeLog:
+  - changeSet:
+      id: default_table_permissions
+      author: demis@gematik.de
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - sql:
+            comment: "set initial table permissions destination_lookup_reader"
+            sql: >
+              GRANT SELECT ON destination_lookup TO destination_lookup_reader;
+              GRANT SELECT ON databasechangelog TO destination_lookup_reader;
+              GRANT SELECT ON databasechangeloglock TO destination_lookup_reader;
+              ALTER DEFAULT PRIVILEGES IN SCHEMA destination_lookup GRANT SELECT ON TABLES TO destination_lookup_reader;
+        - sql:
+            comment: "set initial table permissions destination_lookup_writer"
+            sql: >
+              GRANT SELECT, INSERT, UPDATE ON destination_lookup TO destination_lookup_writer;
+              GRANT SELECT ON databasechangelog TO destination_lookup_writer;
+              GRANT SELECT ON databasechangeloglock TO destination_lookup_writer;
+              ALTER DEFAULT PRIVILEGES IN SCHEMA destination_lookup GRANT SELECT, INSERT, UPDATE ON TABLES TO destination_lookup_writer;
+        - sql:
+            comment: "set initial table permissions destination_lookup_purger"
+            sql: >
+              GRANT SELECT, DELETE ON destination_lookup TO destination_lookup_purger;
+              GRANT SELECT ON databasechangelog TO destination_lookup_purger;
+              GRANT SELECT ON databasechangeloglock TO destination_lookup_purger;
+              ALTER DEFAULT PRIVILEGES IN SCHEMA destination_lookup GRANT SELECT, DELETE ON TABLES TO destination_lookup_purger;

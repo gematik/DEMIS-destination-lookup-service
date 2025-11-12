@@ -1,0 +1,28 @@
+fullnameOverride:  destination-lookup-writer
+service:
+  type: ClusterIP
+  ports:
+    http: 8080
+istio:
+  enable: true
+  virtualService:
+    gateways: {}
+    http:
+      match:
+        - uri:
+            prefix: /
+      rewrite:
+        uri: /
+    hosts: {}
+    retries:
+      enable: true
+      attempts: 0
+      retryOn: null
+  subsets:
+    main:
+      version: 1.0.0
+      weight: "100"
+# activate Traffic mirroring, also called shadowing with the following lines
+#      mirror:
+#        version: 1.1.0
+#        mirrorPercentage: 0
