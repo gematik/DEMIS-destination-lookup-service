@@ -4,39 +4,39 @@
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
-      <version>1.5.19</version>
+      <version>1.5.32</version>
       <licenses>
         <license>
-          <name>Eclipse Public License - v 1.0</name>
-          <url>http://www.eclipse.org/legal/epl-v10.html</url>
-          <file>eclipse public license - v 1.0 - epl-v10.html</file>
+          <name>Eclipse Public License - v 2.0</name>
+          <url>https://www.eclipse.org/legal/epl-v20.html</url>
+          <file>eclipse public license v2.0 - epl-v20.html</file>
         </license>
         <license>
           <name>GNU Lesser General Public License</name>
-          <url>http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html</url>
+          <url>https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html</url>
         </license>
       </licenses>
     </dependency>
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-core</artifactId>
-      <version>1.5.19</version>
+      <version>1.5.32</version>
       <licenses>
         <license>
-          <name>Eclipse Public License - v 1.0</name>
-          <url>http://www.eclipse.org/legal/epl-v10.html</url>
-          <file>eclipse public license - v 1.0 - epl-v10.html</file>
+          <name>Eclipse Public License - v 2.0</name>
+          <url>https://www.eclipse.org/legal/epl-v20.html</url>
+          <file>eclipse public license v2.0 - epl-v20.html</file>
         </license>
         <license>
           <name>GNU Lesser General Public License</name>
-          <url>http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html</url>
+          <url>https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html</url>
         </license>
       </licenses>
     </dependency>
     <dependency>
       <groupId>com.fasterxml</groupId>
       <artifactId>classmate</artifactId>
-      <version>1.7.0</version>
+      <version>1.7.3</version>
       <licenses>
         <license>
           <name>Apache License, Version 2.0</name>
@@ -49,7 +49,7 @@
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-annotations</artifactId>
-      <version>2.19.2</version>
+      <version>2.21</version>
       <licenses>
         <license>
           <name>The Apache Software License, Version 2.0</name>
@@ -62,7 +62,7 @@
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-core</artifactId>
-      <version>2.19.2</version>
+      <version>2.21.2</version>
       <licenses>
         <license>
           <name>The Apache Software License, Version 2.0</name>
@@ -75,13 +75,39 @@
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
-      <version>2.19.2</version>
+      <version>2.21.2</version>
       <licenses>
         <license>
           <name>The Apache Software License, Version 2.0</name>
           <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
           <distribution>repo</distribution>
           <file>apache license, version 2.0 - license-2.0.txt</file>
+        </license>
+      </licenses>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.dataformat</groupId>
+      <artifactId>jackson-dataformat-yaml</artifactId>
+      <version>2.21.2</version>
+      <licenses>
+        <license>
+          <name>The Apache Software License, Version 2.0</name>
+          <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+          <distribution>repo</distribution>
+          <file>apache license, version 2.0 - license-2.0.txt</file>
+        </license>
+      </licenses>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.datatype</groupId>
+      <artifactId>jackson-datatype-jsr310</artifactId>
+      <version>2.21.2</version>
+      <licenses>
+        <license>
+          <name>The Apache Software License, Version 2.0</name>
+          <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+          <distribution>repo</distribution>
+          <file>the apache software license, version 2.0 - license-2.0.txt</file>
         </license>
       </licenses>
     </dependency>
@@ -193,7 +219,7 @@
     <dependency>
       <groupId>commons-io</groupId>
       <artifactId>commons-io</artifactId>
-      <version>2.20.0</version>
+      <version>2.21.0</version>
       <licenses>
         <license>
           <name>Apache-2.0</name>
@@ -206,7 +232,7 @@
     <dependency>
       <groupId>de.gematik.demis</groupId>
       <artifactId>destination-lookup-common</artifactId>
-      <version>1.0.0-SNAPSHOT</version>
+      <version>1.2.0-SNAPSHOT</version>
       <licenses>
         <license>
           <name>Licensed under the EUPL 1.2</name>
@@ -218,10 +244,10 @@
     <dependency>
       <groupId>de.gematik.demis</groupId>
       <artifactId>service-base</artifactId>
-      <version>2.8.1</version>
+      <version>2.15.0</version>
       <licenses>
         <license>
-          <name>Licensed under the EUPL 1.2</name>
+          <name>EUPL-1.2</name>
           <url>https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12</url>
           <file>licensed under the eupl 1.2 - eupl-text-eupl-12.html</file>
         </license>
@@ -230,7 +256,7 @@
     <dependency>
       <groupId>de.gematik.demis</groupId>
       <artifactId>spring-parent</artifactId>
-      <version>2.13.2</version>
+      <version>2.14.20</version>
       <licenses>
         <license>
           <name>Licensed under the EUPL 1.2</name>
@@ -242,7 +268,7 @@
     <dependency>
       <groupId>io.micrometer</groupId>
       <artifactId>micrometer-commons</artifactId>
-      <version>1.15.4</version>
+      <version>1.15.11</version>
       <licenses>
         <license>
           <name>The Apache Software License, Version 2.0</name>
@@ -255,7 +281,7 @@
     <dependency>
       <groupId>io.micrometer</groupId>
       <artifactId>micrometer-observation</artifactId>
-      <version>1.15.4</version>
+      <version>1.15.11</version>
       <licenses>
         <license>
           <name>The Apache Software License, Version 2.0</name>
@@ -275,6 +301,45 @@
           <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
           <distribution>repo</distribution>
           <file>apache license, version 2.0 - license-2.0.txt</file>
+        </license>
+      </licenses>
+    </dependency>
+    <dependency>
+      <groupId>io.swagger.core.v3</groupId>
+      <artifactId>swagger-annotations-jakarta</artifactId>
+      <version>2.2.30</version>
+      <licenses>
+        <license>
+          <name>Apache License 2.0</name>
+          <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+          <distribution>repo</distribution>
+          <file>apache license 2.0 - license-2.0.html</file>
+        </license>
+      </licenses>
+    </dependency>
+    <dependency>
+      <groupId>io.swagger.core.v3</groupId>
+      <artifactId>swagger-core-jakarta</artifactId>
+      <version>2.2.30</version>
+      <licenses>
+        <license>
+          <name>Apache License 2.0</name>
+          <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+          <distribution>repo</distribution>
+          <file>apache license 2.0 - license-2.0.html</file>
+        </license>
+      </licenses>
+    </dependency>
+    <dependency>
+      <groupId>io.swagger.core.v3</groupId>
+      <artifactId>swagger-models-jakarta</artifactId>
+      <version>2.2.30</version>
+      <licenses>
+        <license>
+          <name>Apache License 2.0</name>
+          <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+          <distribution>repo</distribution>
+          <file>apache license 2.0 - license-2.0.html</file>
         </license>
       </licenses>
     </dependency>
@@ -376,7 +441,7 @@
     <dependency>
       <groupId>jakarta.xml.bind</groupId>
       <artifactId>jakarta.xml.bind-api</artifactId>
-      <version>4.0.2</version>
+      <version>4.0.4</version>
       <licenses>
         <license>
           <name>Eclipse Distribution License - v 1.0</name>
@@ -421,7 +486,7 @@
     <dependency>
       <groupId>net.bytebuddy</groupId>
       <artifactId>byte-buddy</artifactId>
-      <version>1.17.7</version>
+      <version>1.17.8</version>
       <licenses>
         <license>
           <name>Apache License, Version 2.0</name>
@@ -435,7 +500,7 @@
     <dependency>
       <groupId>net.bytebuddy</groupId>
       <artifactId>byte-buddy-agent</artifactId>
-      <version>1.17.7</version>
+      <version>1.17.8</version>
       <licenses>
         <license>
           <name>Apache License, Version 2.0</name>
@@ -473,7 +538,7 @@
     <dependency>
       <groupId>net.logstash.logback</groupId>
       <artifactId>logstash-logback-encoder</artifactId>
-      <version>8.1</version>
+      <version>9.0</version>
       <licenses>
         <license>
           <name>Apache License, Version 2.0</name>
@@ -559,7 +624,7 @@
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
-      <version>3.18.0</version>
+      <version>3.20.0</version>
       <licenses>
         <license>
           <name>Apache-2.0</name>
@@ -572,10 +637,10 @@
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-text</artifactId>
-      <version>1.10.0</version>
+      <version>1.15.0</version>
       <licenses>
         <license>
-          <name>Apache License, Version 2.0</name>
+          <name>Apache-2.0</name>
           <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
           <distribution>repo</distribution>
           <file>apache license, version 2.0 - license-2.0.txt</file>
@@ -611,7 +676,7 @@
     <dependency>
       <groupId>org.apache.tomcat.embed</groupId>
       <artifactId>tomcat-embed-el</artifactId>
-      <version>10.1.46</version>
+      <version>10.1.54</version>
       <licenses>
         <license>
           <name>Apache License, Version 2.0</name>
@@ -636,7 +701,7 @@
     <dependency>
       <groupId>org.aspectj</groupId>
       <artifactId>aspectjweaver</artifactId>
-      <version>1.9.24</version>
+      <version>1.9.25.1</version>
       <licenses>
         <license>
           <name>Eclipse Public License - v 2.0</name>
@@ -649,7 +714,7 @@
     <dependency>
       <groupId>org.assertj</groupId>
       <artifactId>assertj-core</artifactId>
-      <version>3.27.4</version>
+      <version>3.27.7</version>
       <licenses>
         <license>
           <name>Apache-2.0</name>
@@ -674,7 +739,7 @@
     <dependency>
       <groupId>org.checkerframework</groupId>
       <artifactId>checker-qual</artifactId>
-      <version>3.49.5</version>
+      <version>3.52.0</version>
       <licenses>
         <license>
           <name>The MIT License</name>
@@ -687,7 +752,7 @@
     <dependency>
       <groupId>org.eclipse.angus</groupId>
       <artifactId>angus-activation</artifactId>
-      <version>2.0.2</version>
+      <version>2.0.3</version>
       <licenses>
         <license>
           <name>EDL 1.0</name>
@@ -700,7 +765,7 @@
     <dependency>
       <groupId>org.glassfish.jaxb</groupId>
       <artifactId>jaxb-core</artifactId>
-      <version>4.0.5</version>
+      <version>4.0.6</version>
       <licenses>
         <license>
           <name>Eclipse Distribution License - v 1.0</name>
@@ -713,7 +778,7 @@
     <dependency>
       <groupId>org.glassfish.jaxb</groupId>
       <artifactId>jaxb-runtime</artifactId>
-      <version>4.0.5</version>
+      <version>4.0.6</version>
       <licenses>
         <license>
           <name>Eclipse Distribution License - v 1.0</name>
@@ -726,7 +791,7 @@
     <dependency>
       <groupId>org.glassfish.jaxb</groupId>
       <artifactId>txw2</artifactId>
-      <version>4.0.5</version>
+      <version>4.0.6</version>
       <licenses>
         <license>
           <name>Eclipse Distribution License - v 1.0</name>
@@ -777,7 +842,7 @@
     <dependency>
       <groupId>org.hibernate.orm</groupId>
       <artifactId>hibernate-core</artifactId>
-      <version>6.6.29.Final</version>
+      <version>6.6.49.Final</version>
       <licenses>
         <license>
           <name>GNU Library General Public License v2.1 or later</name>
@@ -803,7 +868,7 @@
     <dependency>
       <groupId>org.jboss.logging</groupId>
       <artifactId>jboss-logging</artifactId>
-      <version>3.6.1.Final</version>
+      <version>3.6.3.Final</version>
       <licenses>
         <license>
           <name>Apache License 2.0</name>
@@ -976,7 +1041,7 @@
     <dependency>
       <groupId>org.postgresql</groupId>
       <artifactId>postgresql</artifactId>
-      <version>42.7.8</version>
+      <version>42.7.10</version>
       <licenses>
         <license>
           <name>BSD-2-Clause</name>
@@ -990,7 +1055,7 @@
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
-      <version>1.18.40</version>
+      <version>1.18.46</version>
       <licenses>
         <license>
           <name>The MIT License</name>
@@ -1054,7 +1119,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-aop</artifactId>
-      <version>6.2.11</version>
+      <version>6.2.18</version>
       <licenses>
         <license>
           <name>Apache License, Version 2.0</name>
@@ -1067,7 +1132,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-aspects</artifactId>
-      <version>6.2.11</version>
+      <version>6.2.18</version>
       <licenses>
         <license>
           <name>Apache License, Version 2.0</name>
@@ -1080,7 +1145,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-beans</artifactId>
-      <version>6.2.11</version>
+      <version>6.2.18</version>
       <licenses>
         <license>
           <name>Apache License, Version 2.0</name>
@@ -1093,7 +1158,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
-      <version>6.2.11</version>
+      <version>6.2.18</version>
       <licenses>
         <license>
           <name>Apache License, Version 2.0</name>
@@ -1106,7 +1171,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-core</artifactId>
-      <version>6.2.11</version>
+      <version>6.2.18</version>
       <licenses>
         <license>
           <name>Apache License, Version 2.0</name>
@@ -1119,7 +1184,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-expression</artifactId>
-      <version>6.2.11</version>
+      <version>6.2.18</version>
       <licenses>
         <license>
           <name>Apache License, Version 2.0</name>
@@ -1132,7 +1197,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-jcl</artifactId>
-      <version>6.2.11</version>
+      <version>6.2.18</version>
       <licenses>
         <license>
           <name>Apache License, Version 2.0</name>
@@ -1145,7 +1210,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-jdbc</artifactId>
-      <version>6.2.11</version>
+      <version>6.2.18</version>
       <licenses>
         <license>
           <name>Apache License, Version 2.0</name>
@@ -1158,7 +1223,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-orm</artifactId>
-      <version>6.2.11</version>
+      <version>6.2.18</version>
       <licenses>
         <license>
           <name>Apache License, Version 2.0</name>
@@ -1171,7 +1236,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-test</artifactId>
-      <version>6.2.11</version>
+      <version>6.2.18</version>
       <licenses>
         <license>
           <name>Apache License, Version 2.0</name>
@@ -1184,7 +1249,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-tx</artifactId>
-      <version>6.2.11</version>
+      <version>6.2.18</version>
       <licenses>
         <license>
           <name>Apache License, Version 2.0</name>
@@ -1197,7 +1262,7 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot</artifactId>
-      <version>3.5.6</version>
+      <version>3.5.14</version>
       <licenses>
         <license>
           <name>Apache License, Version 2.0</name>
@@ -1209,7 +1274,7 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-autoconfigure</artifactId>
-      <version>3.5.6</version>
+      <version>3.5.14</version>
       <licenses>
         <license>
           <name>Apache License, Version 2.0</name>
@@ -1221,7 +1286,7 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter</artifactId>
-      <version>3.5.6</version>
+      <version>3.5.14</version>
       <licenses>
         <license>
           <name>Apache License, Version 2.0</name>
@@ -1233,7 +1298,7 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-jpa</artifactId>
-      <version>3.5.6</version>
+      <version>3.5.14</version>
       <licenses>
         <license>
           <name>Apache License, Version 2.0</name>
@@ -1245,7 +1310,7 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-jdbc</artifactId>
-      <version>3.5.6</version>
+      <version>3.5.14</version>
       <licenses>
         <license>
           <name>Apache License, Version 2.0</name>
@@ -1257,7 +1322,7 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-logging</artifactId>
-      <version>3.5.6</version>
+      <version>3.5.14</version>
       <licenses>
         <license>
           <name>Apache License, Version 2.0</name>
@@ -1269,7 +1334,7 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
-      <version>3.5.6</version>
+      <version>3.5.14</version>
       <licenses>
         <license>
           <name>Apache License, Version 2.0</name>
@@ -1281,7 +1346,7 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-validation</artifactId>
-      <version>3.5.6</version>
+      <version>3.5.14</version>
       <licenses>
         <license>
           <name>Apache License, Version 2.0</name>
@@ -1293,7 +1358,7 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-test</artifactId>
-      <version>3.5.6</version>
+      <version>3.5.14</version>
       <licenses>
         <license>
           <name>Apache License, Version 2.0</name>
@@ -1305,7 +1370,7 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-test-autoconfigure</artifactId>
-      <version>3.5.6</version>
+      <version>3.5.14</version>
       <licenses>
         <license>
           <name>Apache License, Version 2.0</name>
@@ -1317,7 +1382,7 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-testcontainers</artifactId>
-      <version>3.5.6</version>
+      <version>3.5.14</version>
       <licenses>
         <license>
           <name>Apache License, Version 2.0</name>
@@ -1329,7 +1394,7 @@
     <dependency>
       <groupId>org.springframework.data</groupId>
       <artifactId>spring-data-commons</artifactId>
-      <version>3.5.4</version>
+      <version>3.5.11</version>
       <licenses>
         <license>
           <name>Apache License, Version 2.0</name>
@@ -1355,7 +1420,7 @@
     <dependency>
       <groupId>org.springframework.data</groupId>
       <artifactId>spring-data-jpa</artifactId>
-      <version>3.5.4</version>
+      <version>3.5.11</version>
       <licenses>
         <license>
           <name>Apache License, Version 2.0</name>
@@ -1381,7 +1446,7 @@
     <dependency>
       <groupId>org.testcontainers</groupId>
       <artifactId>database-commons</artifactId>
-      <version>1.21.3</version>
+      <version>1.21.4</version>
       <licenses>
         <license>
           <name>MIT</name>
@@ -1393,7 +1458,7 @@
     <dependency>
       <groupId>org.testcontainers</groupId>
       <artifactId>jdbc</artifactId>
-      <version>1.21.3</version>
+      <version>1.21.4</version>
       <licenses>
         <license>
           <name>MIT</name>
@@ -1405,7 +1470,7 @@
     <dependency>
       <groupId>org.testcontainers</groupId>
       <artifactId>junit-jupiter</artifactId>
-      <version>1.21.3</version>
+      <version>1.21.4</version>
       <licenses>
         <license>
           <name>MIT</name>
@@ -1417,7 +1482,7 @@
     <dependency>
       <groupId>org.testcontainers</groupId>
       <artifactId>postgresql</artifactId>
-      <version>1.21.3</version>
+      <version>1.21.4</version>
       <licenses>
         <license>
           <name>MIT</name>
@@ -1429,7 +1494,7 @@
     <dependency>
       <groupId>org.testcontainers</groupId>
       <artifactId>testcontainers</artifactId>
-      <version>1.21.3</version>
+      <version>1.21.4</version>
       <licenses>
         <license>
           <name>MIT</name>
@@ -1461,6 +1526,32 @@
           <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
           <distribution>repo</distribution>
           <file>the apache software license, version 2.0 - license-2.0.txt</file>
+        </license>
+      </licenses>
+    </dependency>
+    <dependency>
+      <groupId>tools.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+      <version>3.1.2</version>
+      <licenses>
+        <license>
+          <name>The Apache Software License, Version 2.0</name>
+          <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+          <distribution>repo</distribution>
+          <file>apache license, version 2.0 - license-2.0.txt</file>
+        </license>
+      </licenses>
+    </dependency>
+    <dependency>
+      <groupId>tools.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>3.1.2</version>
+      <licenses>
+        <license>
+          <name>The Apache Software License, Version 2.0</name>
+          <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+          <distribution>repo</distribution>
+          <file>apache license, version 2.0 - license-2.0.txt</file>
         </license>
       </licenses>
     </dependency>

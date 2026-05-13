@@ -1,4 +1,25 @@
 vulnerabilities:
+  - id: CVE-2026-28390
+    expired_at: 2026-06-01
+    statement: Only DoS and mitigable via monitoring
+  - id: CVE-2026-40200
+    statement: We do not sort arrays with that amount of data and its only 32-bit applicable
+  - id: CVE-2026-22184
+    expired_at: 2026-06-01
+    statement: Will be fixed via base image update
+  - id: CVE-2026-31789
+    expired_at: 2026-06-01
+    statement: Will be fixed via base image update
+  - id: CVE-2026-28387
+    expired_at: 2026-06-01
+    statement: Will be fixed via base image update
+  - id: CVE-2026-28388
+    expired_at: 2026-06-01
+    statement: Will be fixed via base image update
+  - id: CVE-2026-28389
+    expired_at: 2026-06-01
+    statement: Will be fixed via base image update
+
 
 misconfigurations:
   - id: KSV011
