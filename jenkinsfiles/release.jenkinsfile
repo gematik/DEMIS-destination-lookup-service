@@ -9,5 +9,5 @@ pipelineMultiModuleReleaseDEMIS {
   JIRA_PROJECT_PREFIX = 'Destination-Lookup-Service'
   JIRA_VERSION_DASH_POSITION = 3 // the Position of the dash symbol ("-") in JIRA string
   JENKINS_AGENT= 'k8-backend-small'
-  JAVA_VERSION = 21
+  JAVA_VERSION = 25
 }

@@ -19,7 +19,7 @@ This project includes:
   Apache Commons Compress under Apache-2.0
   Apache Commons IO under Apache-2.0
   Apache Commons Lang under Apache-2.0
-  Apache Commons Text under Apache License, Version 2.0
+  Apache Commons Text under Apache-2.0
   Apache Log4j API under Apache-2.0
   asm under BSD-3-Clause
   ASM based accessors helper used by json-smart under The Apache Software License, Version 2.0
@@ -42,9 +42,11 @@ This project includes:
   Hibernate Validator Engine under Apache License 2.0
   HikariCP under The Apache Software License, Version 2.0
   istack common utility code runtime under Eclipse Distribution License - v 1.0
+  Jackson datatype: JSR310 under The Apache Software License, Version 2.0
   Jackson-annotations under The Apache Software License, Version 2.0
   Jackson-core under The Apache Software License, Version 2.0
   jackson-databind under The Apache Software License, Version 2.0
+  Jackson-dataformat-YAML under The Apache Software License, Version 2.0
   Jakarta Activation API under EDL 1.0
   Jakarta Annotations API under EPL 2.0 or GPL2 w/ CPE
   Jakarta Bean Validation API under Apache License 2.0
@@ -73,8 +75,8 @@ This project includes:
   JUnit Platform Engine API under Eclipse Public License v2.0
   Liquibase under Apache License, Version 2.0
   Log4j API to SLF4J Adapter under Apache-2.0
-  Logback Classic Module under Eclipse Public License - v 1.0 or GNU Lesser General Public License
-  Logback Core Module under Eclipse Public License - v 1.0 or GNU Lesser General Public License
+  Logback Classic Module under Eclipse Public License - v 2.0 or GNU Lesser General Public License
+  Logback Core Module under Eclipse Public License - v 2.0 or GNU Lesser General Public License
   Logstash Logback Encoder under Apache License, Version 2.0 or MIT License
   micrometer-commons under The Apache Software License, Version 2.0
   micrometer-observation under The Apache Software License, Version 2.0
@@ -115,6 +117,9 @@ This project includes:
   spring-boot-test-autoconfigure under Apache License, Version 2.0
   spring-boot-testcontainers under Apache License, Version 2.0
   spring-parent under Licensed under the EUPL 1.2
+  swagger-annotations-jakarta under Apache License 2.0
+  swagger-core-jakarta under Apache License 2.0
+  swagger-models-jakarta under Apache License 2.0
   Testcontainers :: Database-Commons under MIT
   Testcontainers :: JDBC under MIT
   Testcontainers :: JDBC :: PostgreSQL under MIT
