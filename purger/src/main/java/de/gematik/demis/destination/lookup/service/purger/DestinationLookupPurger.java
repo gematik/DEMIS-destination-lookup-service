@@ -34,8 +34,8 @@ import de.gematik.demis.service.base.error.rest.ErrorHandlerConfiguration;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
+import org.springframework.boot.persistence.autoconfigure.EntityScan;
 
 @SpringBootApplication(
     scanBasePackageClasses = ScanBaseMarker.class,

@@ -32,8 +32,8 @@ import de.gematik.demis.destination.lookup.common.entity.Notification;
 import de.gematik.demis.service.base.apidoc.EnableDefaultApiSpecConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
+import org.springframework.boot.persistence.autoconfigure.EntityScan;
 
 @SpringBootApplication(scanBasePackageClasses = ScanBaseMarker.class)
 @ConfigurationPropertiesScan

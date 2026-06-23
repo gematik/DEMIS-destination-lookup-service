@@ -11,8 +11,6 @@ spring:
   liquibase:
     enabled: true
 
-
-
   datasource:
     password: destination_lookup_writer
     username: destination_lookup_writer

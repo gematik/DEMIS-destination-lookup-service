@@ -36,7 +36,7 @@ import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.lang.NonNull;
+import org.jspecify.annotations.NonNull;
 
 /** Entity representing a notification lookup entry in the database. */
 @Entity(name = "destination_lookup")

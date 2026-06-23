@@ -27,9 +27,6 @@ package de.gematik.demis.destination.lookup.common.dto;
  * #L%
  */
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-
 /**
  * Data Transfer Object for Notification entity.
  *
@@ -39,8 +36,6 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
  * @param notificationCategory the type of the notification (the pathogen/disease code)
  * @param lastUpdated the timestamp of the last update in ISO 8601 format as String
  */
-@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
-@JsonSerialize
 public record NotificationDTO(
     String notificationId,
     String responsibleDepartment,

@@ -2,13 +2,12 @@
 {{- $dockerRepository := .Values.required.image.repository | required ".Values.required.image.repository is required." -}}
 {{- $dockerImage := .Values.required.image.name | required ".Values.required.image.name is required." -}}
 {{- $dockerTag := .Values.required.image.tag | default .Chart.AppVersion -}}
-{{- $customEnvVars := .Values.customEnvVars -}}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include " destination-lookup-writer.fullversionname" . }}
+  name: {{ include "destination-lookup-writer.fullversionname" . }}
   labels:
-    {{- include " destination-lookup-writer.labels" . | nindent 4 }}
+    {{- include "destination-lookup-writer.labels" . | nindent 4 }}
   {{- with .Values.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
@@ -19,7 +18,7 @@ spec:
   {{- end }}
   selector:
     matchLabels:
-      {{- include " destination-lookup-writer.selectorLabels" . | nindent 6 }}
+      {{- include "destination-lookup-writer.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -27,14 +26,14 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include " destination-lookup-writer.selectorLabels" . | nindent 8 }}
-        {{- include " destination-lookup-writer.deploymentLabels" . | nindent 8 }}
+        {{- include "destination-lookup-writer.selectorLabels" . | nindent 8 }}
+        {{- include "destination-lookup-writer.deploymentLabels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets: 
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include " destination-lookup-writer.serviceAccountName" . }}
+      serviceAccountName: {{ include "destination-lookup-writer.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       # Add writable volumes
@@ -83,24 +82,7 @@ spec:
           {{- end }}
           # Set the Environment Variables for the container
           env:
-            - name: "TZ"
-              value: "Europe/Berlin"
-            {{- if .Values.debug.enable }}
-            - name: "JAVA_TOOL_OPTIONS"
-              value: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:9000"
-            {{- end }}
-            {{- if .Values.secret }}
-            # Set Spring Configuration Import from Folder Structure
-            - name: "SPRING_CONFIG_IMPORT"
-              value: "configtree:/secrets/*/"
-            {{- end }}
-            {{- if $customEnvVars }}
-            # Custom Environment Variables
-            {{- range $_, $key := keys $customEnvVars | sortAlpha }}
-            - name: {{ $key | quote }}
-              value: {{ tpl (get $customEnvVars $key | toString) $ | quote }}
-            {{- end }}
-            {{- end }}
+            {{- include "destination-lookup-writer.env" . | nindent 12 }}
           # Mount Volumes in container
           volumeMounts:
             - name: tmp-volume
@@ -168,7 +150,7 @@ spec:
               - key: app
                 operator: In
                 values:
-                - {{ include " destination-lookup-writer.name" . }}
+                - {{ include "destination-lookup-writer.name" . }}
               - key: version
                 operator: In
                 values:

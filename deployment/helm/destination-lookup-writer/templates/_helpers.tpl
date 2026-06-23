@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define " destination-lookup-writer.name" -}}
+{{- define "destination-lookup-writer.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define " destination-lookup-writer.fullname" -}}
+{{- define "destination-lookup-writer.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -23,8 +23,8 @@ If release name contains chart name it will be used as a full name.
 {{- end }}
 {{- end }}
 
-{{- define " destination-lookup-writer.fullversionname" -}}
-{{- $name := include " destination-lookup-writer.fullname" . }}
+{{- define "destination-lookup-writer.fullversionname" -}}
+{{- $name := include "destination-lookup-writer.fullname" . }}
 {{- $version := regexReplaceAll "\\.+" .Chart.Version "-" }}
 {{- printf "%s-%s" $name $version | trunc 63 }}
 {{- end }}
@@ -32,16 +32,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define " destination-lookup-writer.chart" -}}
+{{- define "destination-lookup-writer.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define " destination-lookup-writer.labels" -}}
-helm.sh/chart: {{ include " destination-lookup-writer.chart" . }}
-{{ include " destination-lookup-writer.selectorLabels" . }}
+{{- define "destination-lookup-writer.labels" -}}
+helm.sh/chart: {{ include "destination-lookup-writer.chart" . }}
+{{ include "destination-lookup-writer.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 version: {{ .Chart.AppVersion | quote }}
@@ -55,17 +55,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define " destination-lookup-writer.selectorLabels" -}}
-app: {{ include " destination-lookup-writer.name" . }}
+{{- define "destination-lookup-writer.selectorLabels" -}}
+app: {{ include "destination-lookup-writer.name" . }}
 version: {{ .Chart.AppVersion | quote }}
-app.kubernetes.io/name: {{ include " destination-lookup-writer.name" . }}
+app.kubernetes.io/name: {{ include "destination-lookup-writer.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Deployment labels
 */}}
-{{- define " destination-lookup-writer.deploymentLabels" -}}
+{{- define "destination-lookup-writer.deploymentLabels" -}}
 {{- with .Values.deploymentLabels }}
 {{ toYaml . }}
 {{- end }}
@@ -74,10 +74,42 @@ Deployment labels
 {{/*
 Create the name of the service account to use
 */}}
-{{- define " destination-lookup-writer.serviceAccountName" -}}
+{{- define "destination-lookup-writer.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include " destination-lookup-writer.fullversionname" .) .Values.serviceAccount.name }}
+{{- default (include "destination-lookup-writer.fullversionname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+Environment Variables
+*/}}
+{{- define "destination-lookup-writer.env" -}}
+{{- $envs := dict -}}
+{{- if .Values.secret.dbDdlWriter -}}
+{{- $envs = set $envs "SPRING_CONFIG_IMPORT" "configtree:/secrets/*/" }}
+{{- end -}}
+{{- if .Values.customEnvVars -}}
+{{- range $key, $value := .Values.customEnvVars -}}
+{{ if $value -}}
+{{- $envs = set $envs $key $value }}
+{{- end -}}
+{{- end -}}
+{{- end -}}
+{{- if .Values.debug.enable -}}
+{{- $toolOptions := printf "%s %s" (get $envs "JAVA_TOOL_OPTIONS") .Values.debug.params | trim -}}
+{{- $envs = set $envs "JAVA_TOOL_OPTIONS" $toolOptions -}}
+{{- end -}}
+{{- range $i, $key := keys $envs | sortAlpha -}}
+{{- if $i }}
+{{ end -}}
+{{- $v := get $envs $key -}}
+- name: {{ $key | quote }}
+{{- if kindIs "string" $v }}
+  value: {{ tpl $v $ | quote }}
+{{- else }}
+  value: {{ $v | quote }}
+{{- end }}
+{{- end -}}
+{{- end -}}

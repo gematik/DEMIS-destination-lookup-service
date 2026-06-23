@@ -27,7 +27,7 @@ package de.gematik.demis.destination.lookup.common.dto;
  * #L%
  */
 
-import org.springframework.lang.NonNull;
+import org.jspecify.annotations.NonNull;
 
 /** Data Transfer Object for the notificationCategory. */
 public class NotificationCategoryDTO {

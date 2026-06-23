@@ -40,7 +40,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.dao.InvalidDataAccessResourceUsageException;
+import org.springframework.orm.jpa.JpaSystemException;
 import org.springframework.test.context.ActiveProfiles;
 
 @ActiveProfiles("test")
@@ -55,7 +55,7 @@ class DestinationLookupReaderDbPermissionsTest extends TestWithPostgresContainer
   @DisplayName("Reader user could not write to destination_lookup table")
   @Test
   void readerCouldNotWriteToDestinationLookupTable() {
-    assertThatExceptionOfType(InvalidDataAccessResourceUsageException.class)
+    assertThatExceptionOfType(JpaSystemException.class)
         .isThrownBy(
             () ->
                 repository.save(
@@ -77,7 +77,7 @@ class DestinationLookupReaderDbPermissionsTest extends TestWithPostgresContainer
     Notification notification = prepareNotificationData();
 
     notification.setResponsibleDepartment("GA Munich");
-    assertThatExceptionOfType(InvalidDataAccessResourceUsageException.class)
+    assertThatExceptionOfType(JpaSystemException.class)
         .isThrownBy(() -> repository.save(notification));
   }
 
@@ -85,7 +85,7 @@ class DestinationLookupReaderDbPermissionsTest extends TestWithPostgresContainer
   @Test
   void readerCouldNotDeleteFromDestinationLookupTable() throws IOException, InterruptedException {
     Notification notification = prepareNotificationData();
-    assertThatExceptionOfType(InvalidDataAccessResourceUsageException.class)
+    assertThatExceptionOfType(JpaSystemException.class)
         .isThrownBy(() -> repository.delete(notification));
   }
 }

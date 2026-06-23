@@ -1,26 +1,38 @@
 vulnerabilities:
-  - id: CVE-2026-28390
-    expired_at: 2026-06-01
-    statement: Only DoS and mitigable via monitoring
   - id: CVE-2026-40200
     statement: We do not sort arrays with that amount of data and its only 32-bit applicable
-  - id: CVE-2026-22184
-    expired_at: 2026-06-01
-    statement: Will be fixed via base image update
-  - id: CVE-2026-31789
-    expired_at: 2026-06-01
-    statement: Will be fixed via base image update
-  - id: CVE-2026-28387
-    expired_at: 2026-06-01
-    statement: Will be fixed via base image update
-  - id: CVE-2026-28388
-    expired_at: 2026-06-01
-    statement: Will be fixed via base image update
-  - id: CVE-2026-28389
-    expired_at: 2026-06-01
-    statement: Will be fixed via base image update
-
-
+  - id: CVE-2026-42198
+    expired_at: 2026-07-01
+    statement: unaffected, we do not use SCRAM-SHA-256
+  - id: CVE-2026-41293
+    expired_at: 2026-07-01
+    statement: tomcat uneffected
+  - id: CVE-2026-43512
+    expired_at: 2026-07-01
+    statement: tomcat uneffected
+  - id: CVE-2026-43515
+    expired_at: 2026-07-01
+    statement: tomcat uneffected
+  - id: CVE-2026-41284
+    expired_at: 2026-07-01
+    statement: tomcat uneffected
+  - id: CVE-2026-42498
+    expired_at: 2026-07-01
+    statement: tomcat uneffected
+  - id: CVE-2026-43513
+    expired_at: 2026-07-01
+    statement: tomcat uneffected
+  - id: CVE-2026-44249
+    expired_at: 2026-08-01
+    statement: netty. We don't use a IPv6 subnet filter rules inside the services.
+  - id: CVE-2026-45447
+    statement: Not Affected. Base-Image CVE. We don't process PKCS#7 or S/MIME signed messages.
+  - id: CVE-2026-2673
+    statement: TLS wird auf Infrastrukturebene behandelt, nicht direkt in den Services
+  - id: CVE-2026-55471
+    statement: transform operations from XSL utilities are not used.
+  - id: CVE-2026-2100
+    statement: Not Affected. We don't use PKCS#11.
 misconfigurations:
   - id: KSV011
     statement: CPU and RAM not limited - They are configured in the Stage Configuration
@@ -42,7 +54,6 @@ misconfigurations:
     statement: Limits not set - Not detected by Trivy
   - id: KSV110
     statement: Workloads in the default namespace - set during deployment
-
 # Ignore single packages is temporarily not supported
 licenses:
   - id: GPL-2.0-only
