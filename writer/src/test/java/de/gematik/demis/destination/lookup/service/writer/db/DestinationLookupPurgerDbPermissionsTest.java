@@ -40,7 +40,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.dao.InvalidDataAccessResourceUsageException;
+import org.springframework.orm.jpa.JpaSystemException;
 import org.springframework.test.context.ActiveProfiles;
 
 @ActiveProfiles("test")
@@ -55,7 +55,7 @@ class DestinationLookupPurgerDbPermissionsTest extends TestWithPostgresContainer
   @DisplayName("Purger user could not write to destination_lookup table")
   @Test
   void purgerCouldNotWriteToDestinationLookupTable() {
-    assertThatExceptionOfType(InvalidDataAccessResourceUsageException.class)
+    assertThatExceptionOfType(JpaSystemException.class)
         .isThrownBy(
             () ->
                 repository.save(
@@ -78,7 +78,7 @@ class DestinationLookupPurgerDbPermissionsTest extends TestWithPostgresContainer
     Notification notification = prepareNotificationData();
 
     notification.setResponsibleDepartment("GA Munich");
-    assertThatExceptionOfType(InvalidDataAccessResourceUsageException.class)
+    assertThatExceptionOfType(JpaSystemException.class)
         .isThrownBy(() -> repository.save(notification));
   }
 

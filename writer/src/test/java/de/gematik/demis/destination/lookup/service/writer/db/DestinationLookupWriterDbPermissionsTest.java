@@ -39,7 +39,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.dao.InvalidDataAccessResourceUsageException;
+import org.springframework.orm.jpa.JpaSystemException;
 import org.springframework.test.context.ActiveProfiles;
 
 @ActiveProfiles("test")
@@ -89,7 +89,7 @@ class DestinationLookupWriterDbPermissionsTest extends TestWithPostgresContainer
     UUID uuid = UUID.randomUUID();
     Notification notification = new Notification(uuid, "GA Berlin", "CVDP", OffsetDateTime.now());
     repository.save(notification);
-    assertThatExceptionOfType(InvalidDataAccessResourceUsageException.class)
+    assertThatExceptionOfType(JpaSystemException.class)
         .isThrownBy(() -> repository.delete(notification));
   }
 }

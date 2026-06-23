@@ -6,7 +6,7 @@
     <parent>
         <groupId>de.gematik.demis</groupId>
         <artifactId>destination-lookup-service</artifactId>
-        <version>1.2.0-SNAPSHOT</version>
+        <version>1.3.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -22,8 +22,6 @@
     </licenses>
 
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>25</java.version>
         <sonar.sources>.</sonar.sources>
         <sonar.exclusions>
             src/test/**,
@@ -33,21 +31,7 @@
         <sonar.tests>src/test</sonar.tests>
     </properties>
 
-    <build>
-        <finalName>${project.artifactId}</finalName>
-        <plugins>
-            <plugin>
-                <groupId>org.openapitools</groupId>
-                <artifactId>openapi-generator-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
-
     <dependencies>
-        <dependency>
-            <groupId>de.gematik.demis</groupId>
-            <artifactId>service-base</artifactId>
-        </dependency>
         <dependency>
             <groupId>de.gematik.demis</groupId>
             <artifactId>destination-lookup-common</artifactId>

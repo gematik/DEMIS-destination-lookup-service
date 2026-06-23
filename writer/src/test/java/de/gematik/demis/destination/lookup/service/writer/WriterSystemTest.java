@@ -31,15 +31,12 @@ import de.gematik.demis.AbstractOpenApiSpecDownloaderTest;
 import de.gematik.demis.destination.lookup.service.writer.repository.DestinationLookupWriterRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Nested;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class})
-@ActiveProfiles("test")
+@ActiveProfiles("without-database")
 @Slf4j
 public class WriterSystemTest {
 
