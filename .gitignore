@@ -40,3 +40,6 @@ build/
 
 # OpenApi
 **/docs/api/.openapi-generator
+
+renovate.json
+
