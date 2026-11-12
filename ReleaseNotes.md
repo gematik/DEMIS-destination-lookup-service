@@ -1,6 +1,14 @@
 <img align="right" width="250" height="47" src="media/Gematik_Logo_Flag.png"/> <br/> 
  
 # Release notes
+## Release 1.3.1
+- fixed handling of falsy custom environment variables (false, 0) in helm chart
+- updated spring-parent to version 4.1.11
+- added vex documents
+- Updated minor/patch versions of dependencies
+- changed purger.retention.days from 30 to 180
+- updated Docker base image to gematik1/osadl-alpine-openjdk25-jre:1.1.1
+
 ## Release 1.3.0
 - Added prometheus pod annotations to helm charts
 - arranged jvm options and resource limits

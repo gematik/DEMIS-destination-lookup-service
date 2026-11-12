@@ -4,11 +4,11 @@
   <parent>
     <groupId>de.gematik.demis</groupId>
     <artifactId>spring-parent</artifactId>
-    <version>4.0.6</version>
+    <version>4.1.15</version>
     <relativePath></relativePath><!-- lookup parent from repository -->
   </parent>
   <artifactId>destination-lookup-service</artifactId>
-  <version>1.3.0-SNAPSHOT</version>
+  <version>1.3.1-SNAPSHOT</version>
   <name>destination-lookup-service</name>
   <packaging>pom</packaging>
   <description>DEMIS Services for storing and reading Health Office Addresses for follow-up notifications</description>
@@ -19,7 +19,7 @@
     </license>
   </licenses>
   <properties>
-    <spring-parent.version>4.0.4</spring-parent.version>
+    <spring-parent.version>4.1.15</spring-parent.version>
     <checker-qual.version>3.49.4</checker-qual.version>
     <openapi-generator.inputSpec>${project.build.directory}/spec/api-spec.yaml</openapi-generator.inputSpec>
   </properties>

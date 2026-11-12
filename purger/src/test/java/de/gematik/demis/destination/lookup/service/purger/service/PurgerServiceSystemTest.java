@@ -67,11 +67,11 @@ class PurgerServiceSystemTest extends TestWithPostgresContainer {
   void shouldDeleteOnlyOldRecordsMarkedForDeletion() throws IOException, InterruptedException {
     // Given
     OffsetDateTime now = OffsetDateTime.now(ZoneId.systemDefault());
-    OffsetDateTime oldDate = now.minusDays(35); // Older than 30 days
-    OffsetDateTime edgeCaseOneDayOlderDate = now.minusDays(31); // 31 Days old
-    OffsetDateTime edgeCaseOneDayYoungerDate = now.minusDays(29); // 29 Days old
+    OffsetDateTime oldDate = now.minusDays(185); // Older than 180 days
+    OffsetDateTime edgeCaseOneDayOlderDate = now.minusDays(181); // 181 Days old
+    OffsetDateTime edgeCaseOneDayYoungerDate = now.minusDays(179); // 179 Days old
     OffsetDateTime edgeCaseFuture = now.plusDays(1); // 1 Day in the future
-    OffsetDateTime recentDate = now.minusDays(20); // Within 30 days
+    OffsetDateTime recentDate = now.minusDays(160); // Within 180 days
     // Create test data
     Notification notificationRecent = prepareNotificationData(recentDate);
     Notification notificationEdgeCaseOneDayYounger =
@@ -113,7 +113,7 @@ class PurgerServiceSystemTest extends TestWithPostgresContainer {
   void shouldDeleteNothingWhenNoRecordsMeetCriteria() throws IOException, InterruptedException {
     // Given
     OffsetDateTime recentDate = OffsetDateTime.now().minusDays(10);
-    OffsetDateTime oneDayBeforeDate = OffsetDateTime.now().minusDays(29);
+    OffsetDateTime oneDayBeforeDate = OffsetDateTime.now().minusDays(179);
     Notification notification1 = prepareNotificationData(recentDate);
     Notification notification2 = prepareNotificationData(oneDayBeforeDate);
 
@@ -157,7 +157,7 @@ class PurgerServiceSystemTest extends TestWithPostgresContainer {
   void shouldRespectExactRetentionBoundary() throws IOException, InterruptedException {
     // Given
     OffsetDateTime now = OffsetDateTime.now(ZoneId.systemDefault());
-    OffsetDateTime exactBoundary = now.minusDays(30);
+    OffsetDateTime exactBoundary = now.minusDays(180);
     OffsetDateTime justBefore = exactBoundary.minusDays(1);
     OffsetDateTime justAfter = exactBoundary.plusDays(1);
 
@@ -184,7 +184,7 @@ class PurgerServiceSystemTest extends TestWithPostgresContainer {
   @DisplayName("Should be transactional and rollback on exception")
   void shouldBeTransactionalAndRollbackOnException() throws IOException, InterruptedException {
     // Given
-    OffsetDateTime oldDate = OffsetDateTime.now(ZoneId.systemDefault()).minusDays(35);
+    OffsetDateTime oldDate = OffsetDateTime.now(ZoneId.systemDefault()).minusDays(185);
 
     prepareNotificationData(oldDate);
 
@@ -193,7 +193,7 @@ class PurgerServiceSystemTest extends TestWithPostgresContainer {
     when(mockRepository.deleteNotificationsByLastUpdated(any(OffsetDateTime.class)))
         .thenThrow(new RuntimeException("Database error"));
 
-    PurgerService purgerServiceWithMockRepo = new PurgerService(mockRepository, 30);
+    PurgerService purgerServiceWithMockRepo = new PurgerService(mockRepository, 180);
 
     // When & Then
     assertThatExceptionOfType(RuntimeException.class)
@@ -207,7 +207,7 @@ class PurgerServiceSystemTest extends TestWithPostgresContainer {
   @Transactional
   @DisplayName("Should work with different retention periods")
   void shouldWorkWithDifferentRetentionPeriods() throws IOException, InterruptedException {
-    // Given - Service with 10 days retention instead of 30
+    // Given - Service with 10 days retention instead of 180
     PurgerService shortRetentionService = new PurgerService(repository, 10);
 
     OffsetDateTime now = OffsetDateTime.now(ZoneId.systemDefault());

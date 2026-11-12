@@ -29,6 +29,7 @@ This project includes:
   Awaitility under Apache 2.0
   Byte Buddy (without dependencies) under Apache License, Version 2.0
   Byte Buddy agent under Apache License, Version 2.0
+  Checker Qual under The MIT License
   ClassMate under Apache License, Version 2.0
   destination-lookup-common under Licensed under the EUPL 1.2
   destination-lookup-purger under Licensed under the EUPL 1.2

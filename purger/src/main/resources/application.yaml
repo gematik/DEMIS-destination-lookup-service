@@ -48,4 +48,4 @@ info:
 purger:
   retention:
     # Number of days after which data will be purged, if the flag "can_delete" is true
-    days: 30
+    days: 180
